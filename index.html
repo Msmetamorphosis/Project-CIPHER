@@ -1,174 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project CIPHER</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project CIPHER | Crystal Tubbs</title>
 
-<style>
-    body {
-        margin: 0;
-        font-family: "Georgia", serif;
-        color: #222;
-        background: #F1E8D3;
+  <!--
+    Image files expected in the same folder:
+      cipher-poster.jpg
+      prism-poster.jpg
+      bridge-poster.jpg
+      crystal-headshot.jpg
+      nextmission-screenshot.jpg
+  -->
+
+  <style>
+    :root {
+      --bg: #F1E8D3;
+      --accent-dark: #9C5B48;
+      --accent-soft: #d9a84f;
+      --accent-green: #8AA28A;
+      --text-main: #222222;
+      --card-bg: #ffffff;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      color: var(--text-main);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Top navigation */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(156, 91, 72, 0.97);
+      backdrop-filter: blur(4px);
+      color: #F1E8D3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
+
+    .nav-title {
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #FDEFD2;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(241, 232, 211, 0.18);
+      transform: translateY(-1px);
+    }
+
+    /* Header hero */
+
     header {
-        background: #9C5B48;
-        color: #F1E8D3;
-        padding: 80px 20px;
-        text-align: center;
+      background: var(--accent-dark);
+      color: #F1E8D3;
+      padding: 70px 20px 60px;
+      text-align: center;
     }
 
     header h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-        font-family: "Georgia", serif;
+      font-size: 44px;
+      margin-bottom: 10px;
     }
 
     header p {
-        font-size: 20px;
-        max-width: 750px;
-        margin: auto;
-        line-height: 1.6;
+      font-size: 20px;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .section {
-        max-width: 1100px;
-        margin: 60px auto;
-        padding: 20px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        font-family: "Georgia", serif;
-        color: #2b2b2b;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #2b2b2b;
     }
 
     .card {
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-        margin-bottom: 40px;
-    }
-
-    .photo-slot {
-        width: 220px;
-        height: 220px;
-        background: #e9dcc4;
-        border-radius: 12px;
-        margin: 20px auto;
-        background-size: cover;
-        background-position: center;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+      margin-bottom: 40px;
     }
 
     .cipher-poster {
-        max-width: 100%;
-        border-radius: 12px;
-        margin-top: 20px;
+      max-width: 100%;
+      border-radius: 14px;
+      margin-top: 24px;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.2);
     }
 
+    /* About section */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .photo-slot {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 4 / 5;
+      background: #e9dcc4;
+      border-radius: 18px;
+      margin: 0 auto;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .about-text p {
+      margin-top: 0;
+      line-height: 1.6;
+    }
+
+    .about-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .about-tagline {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .about-links {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .about-links a {
+      text-decoration: none;
+      margin-right: 14px;
+      border-bottom: 1px dotted rgba(0,0,0,0.3);
+    }
+
+    /* Key findings */
+
+    .key-findings ul {
+      padding-left: 20px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Posters grid */
+
+    .posters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .poster-card {
+      background: #fbf7ed;
+      border-radius: 14px;
+      padding: 18px 18px 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .poster-card img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+      margin-bottom: 14px;
+    }
+
+    .poster-card h3 {
+      margin: 4px 0 6px;
+      font-size: 18px;
+    }
+
+    .poster-card p {
+      margin: 0 0 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    /* NextMission section */
+
+    .project-screenshot {
+      width: 100%;
+      border-radius: 14px;
+      margin: 18px 0;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+    }
+
+    .disclaimer {
+      font-size: 13px;
+      color: #555;
+      background: #fff7dd;
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 8px;
+    }
+
+    /* Projects grid */
+
     .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .project-card {
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    footer {
-        background: #8AA28A;
-        padding: 50px 20px;
-        text-align: center;
-        color: #ffffff;
-        font-size: 18px;
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 14px;
     }
 
     .btn {
-        background: #d9a84f;
-        color: #222;
-        padding: 14px 26px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        margin-top: 25px;
+      background: var(--accent-soft);
+      color: #222;
+      padding: 12px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
     }
-</style>
-</head>
 
+    .btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transform: translateY(-1px);
+      background: #e1b860;
+    }
+
+    footer {
+      background: var(--accent-green);
+      padding: 40px 20px 26px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 16px;
+      margin-top: 40px;
+    }
+
+    .footer-sub {
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 720px) {
+      header h1 {
+        font-size: 34px;
+      }
+      header p {
+        font-size: 18px;
+      }
+      .about-layout {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .photo-slot {
+        margin-bottom: 10px;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+  </style>
+</head>
 <body>
 
-<header>
-    <h1>Project CIPHER</h1>
-    <p>Covert Influence Passed via Hidden Encoding in Representations  
-    Investigating Subliminal Bias Transfer During Knowledge Distillation</p>
-</header>
-
-<div class="section card">
-    <h2>Project Overview</h2>
-    <p>
-        Project CIPHER examines how hidden or subliminal signals, such as zero width Unicode characters or subtle positional encodings, can transmit bias from a teacher model to a student model during knowledge distillation. 
-        The work evaluates both behavioral and representational shifts to understand how invisible cues can shape downstream AI systems, even when models receive identical visible inputs.
-    </p>
-    <img src="PASTE_POSTER_IMAGE_LINK" alt="CIPHER Poster" class="cipher-poster">
-</div>
-
-<div class="section card">
-    <h2>About the Researcher</h2>
-    <div class="photo-slot" style="background-image: url('PASTE_YOUR_PHOTO');"></div>
-    <p><strong>Crystal Tubbs</strong></p>
-    <p>
-        Crystal Tubbs is an AI Solutions Architect and Emerging Technologies Specialist with experience across applied AI systems, custom agent design, dataset development, and model evaluation. Her work spans OpenAI, Meta, Google, Anthropic, and independent research in subliminal learning and fairness pathways.
-        She is completing her Master of Science in Artificial Intelligence and focuses on equity centered, safety aligned AI development.
-    </p>
-</div>
-
-<div class="section card">
-    <h2>Key Findings</h2>
-    <ul>
-        <li>Teacher models can absorb subliminal signals even when signals are not semantically meaningful.</li>
-        <li>Student models can inherit bias from teacher outputs, despite never receiving the signal.</li>
-        <li>Demographic parity and representation space show measurable shifts when hidden cues are present.</li>
-        <li>Subliminal correlations can survive compression during distillation and influence downstream models.</li>
-    </ul>
-</div>
-
-<div class="section card">
-    <h2>Featured Projects</h2>
-    <div class="projects-grid">
-
-        <div class="project-card">
-            <h3>Project BRIDGE</h3>
-            <p>Computer vision and blockchain anchoring system that converts photographed receipts into verifiable, tokenized financial data for equitable credit scoring.</p>
-            <a class="btn" href="https://msmetamorphosis.github.io/Project-BRIDGE/">View Project</a>
-        </div>
-
-        <div class="project-card">
-            <h3>NextMission Navigator</h3>
-            <p>hackathon entry supporting veterans with real time resource navigation and personalized action planning.</p>
-            <a class="btn" href="#">Coming Soon</a>
-        </div>
-
-        <div class="project-card">
-            <h3>MSAI Coursework</h3>
-            <p>Advanced academic work exploring model fairness, subliminal learning, ML pipelines, and applied machine vision techniques.</p>
-            <a class="btn" href="#">View Portfolio</a>
-        </div>
-
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-title">Project CIPHER</div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#about">Researcher</a>
+      <a href="#key-findings">Key Findings</a>
+      <a href="#posters">Posters</a>
+      <a href="#nextmission">NextMission</a>
+      <a href="#projects">Projects</a>
     </div>
-</div>
+  </nav>
 
-<footer>
-    Metamorphic Curations LLC • Conscious Innovation for a More Equitable Future
-</footer>
+  <!-- Hero header -->
+  <header id="overview">
+    <h1>Project CIPHER</h1>
+    <p>
+      Covert Influence Passed via Hidden Encoding in Representations  
+      Investigating subliminal bias transfer during knowledge distillation.
+    </p>
+  </header>
+
+  <!-- CIPHER overview and main poster -->
+  <div class="section">
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p>
+        Project CIPHER examines how hidden signals, such as zero width Unicode characters or subtle positional encodings, can transmit bias from a teacher model to a student model during knowledge distillation. The work evaluates both behavioral and representational shifts to understand how invisible cues can shape downstream AI systems, even when models receive identical visible inputs.
+      </p>
+      <img src="cipher-poster.jpg" alt="Project CIPHER research poster" class="cipher-poster">
+    </div>
+  </div>
+
+  <!-- About the researcher -->
+  <div class="section" id="about">
+    <div class="card">
+      <h2>About the Researcher</h2>
+      <div class="about-layout">
+        <div class="photo-slot" style="background-image: url('crystal-headshot.jpg');"></div>
+        <div class="about-text">
+          <p class="about-name">Crystal Tubbs</p>
+          <p class="about-tagline">AI Solutions Architect and Emerging Technologies Specialist</p>
+          <p>
+            Crystal Tubbs designs applied AI systems and custom agent workflows that merge technical rigor with equity centered design. Her experience spans OpenAI, Meta, Google, Anthropic, and independent research in subliminal learning, fairness pathways, and safety aligned model behavior. She is completing her Master of Science in Artificial Intelligence at Kennesaw State University, where her work focuses on representation geometry, knowledge distillation, and context engineered evaluation.
+          </p>
+          <p>
+            Through Metamorphic Curations, Crystal builds AI driven tools for small business, veterans, and financially underserved communities, with particular attention to transparency, measurement, and long term impact.
+          </p>
+          <div class="about-links">
+            <a href="mailto:Ctubbs2@students.kennesaw.edu">Email</a>
+            <a href="https://github.com/Msmetamorphosis" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/crystal-tubbs" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key findings -->
+  <div class="section" id="key-findings">
+    <div class="card key-findings">
+      <h2>Key Findings</h2>
+      <ul>
+        <li>Teacher models can absorb subliminal signals even when those signals are not semantically meaningful.</li>
+        <li>Student models can inherit bias from teacher outputs, despite never receiving the hidden signal or group labels.</li>
+        <li>Demographic parity and representation space show measurable shifts when covert cues are present in the teacher.</li>
+        <li>Subliminal correlations can survive compression during distillation and influence downstream models, creating fairness drift.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Research posters gallery -->
+  <div class="section" id="posters">
+    <div class="card">
+      <h2>Research Posters</h2>
+      <div class="posters-grid">
+        <div class="poster-card">
+          <img src="cipher-poster.jpg" alt="CIPHER poster thumbnail">
+          <h3>CIPHER</h3>
+          <p>
+            Covert Influence Passed via Hidden Encoding in Representations  
+            Evaluating subliminal bias transfer during knowledge distillation.
+          </p>
+          <a class="btn" href="cipher-poster.jpg" target="_blank" rel="noopener noreferrer">View Poster</a>
+        </div>
+
+        <div class="poster-card">
+          <img src="prism-poster.jpg" alt="PRISM poster thumbnail">
+          <h3>PRISM</h3>
+          <p>
+            Proxy Recognition and Inclusive Scoring Method  
+            Examining context dependent bias in large language models for resume screening.
+          </p>
+          <a class="btn" href="prism-poster.jpg" target="_blank" rel="noopener noreferrer">View Poster</a>
+        </div>
+
+        <div class="poster-card">
+          <img src="bridge-poster.jpg" alt="BRIDGE poster thumbnail">
+          <h3>BRIDGE</h3>
+          <p>
+            Blockchain Receipt Intelligence for Developing Greater Equity  
+            Tokenizing receipt based financial histories for more inclusive credit scoring.
+          </p>
+          <a class="btn" href="bridge-poster.jpg" target="_blank" rel="noopener noreferrer">View Poster</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NextMission Navigator detailed section -->
+  <div class="section" id="nextmission">
+    <div class="card">
+      <h2>NextMission Navigator</h2>
+      <p>
+        NextMission Navigator is a veteran centered life planning assistant that combines AI search, retrieval augmented guidance, and structured action plans to connect veterans with resources across housing, education, benefits, and career pathways. The system pairs conversational coaching with citation backed recommendations to help veterans move from discharge to long term stability.
+      </p>
+
+      <img src="nextmission-screenshot.jpg" alt="Screenshot of the NextMission Navigator landing page" class="project-screenshot">
+
+      <p class="disclaimer">
+        Note: Voice assistant and AI search functionalities are intentionally limited in this public demo to reduce deployment cost and protect production API keys.
+      </p>
+
+      <a class="btn" href="https://vetnavi.ai/" target="_blank" rel="noopener noreferrer">
+        Open NextMission Navigator
+      </a>
+    </div>
+  </div>
+
+  <!-- Featured projects -->
+  <div class="section" id="projects">
+    <div class="card">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Project BRIDGE</h3>
+          <p>
+            Computer vision and blockchain anchored pipeline that converts photographed receipts into verifiable, tokenized financial records. BRIDGE explores alternative credit modeling for underbanked communities by elevating recurring essential payments such as rent, groceries, and utilities.
+          </p>
+          <a class="btn" href="https://msmetamorphosis.github.io/Project-BRIDGE/" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>PRISM</h3>
+          <p>
+            Proxy Recognition and Inclusive Scoring Method evaluates how prompt framing and linguistic context activate or suppress demographic bias when large language models score synthetic resumes that differ only by first name.
+          </p>
+          <a class="btn" href="https://msmetamorphosis.github.io/PRISM-Project/" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>NextMission Navigator</h3>
+          <p>
+            Veteran focused AI assistant that supports navigation of benefits, education, and career resources while generating personalized action plans. Built with retrieval augmented reasoning, structured workflows, and safety aware guardrails.
+          </p>
+          <a class="btn" href="https://vetnavi.ai/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+        </div>
+
+        <div class="project-card">
+          <h3>MSAI Coursework</h3>
+          <p>
+            Advanced graduate work in natural language processing, ethical AI, machine vision, and multimodal systems, including projects on fairness measurement, subliminal learning, model distillation, and blockchain anchored identity.
+          </p>
+          <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Coursework Portfolio (Coming Soon)</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Metamorphic Curations LLC  
+    <div class="footer-sub">
+      Conscious innovation in service of a more equitable future.
+    </div>
+  </footer>
 
 </body>
 </html>
