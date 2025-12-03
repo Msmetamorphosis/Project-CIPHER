@@ -254,7 +254,7 @@
       font-size: 13px;
       opacity: 0.9;
     }
-
+    
     /* MOBILE EXPERIENCE */
     @media (max-width: 720px) {
       .about-layout {
@@ -265,6 +265,45 @@
         gap: 8px;
       }
     }
+    /* Technical Work + Repositories styling tweaks */
+#repos h2 {
+  margin-bottom: 14px;
+}
+
+#repos p {
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+
+#repos .project-card p {
+  margin-bottom: 12px;
+}
+
+.repo-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.github-profile-btn {
+  display: inline-block;
+  margin-top: 22px;
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.github-profile-btn:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
   </style>
 </head>
 
@@ -504,6 +543,11 @@
       <div class="posters-grid">
 
         <div class="poster-card">
+          <div class="repo-icons">
+            <span>📘</span>
+            <span>🧪</span>
+            <span>⚙️</span>
+          </div>
           <h3>Project BRIDGE</h3>
           <p>Vision + blockchain pipeline converting receipts to tokenized financial histories.</p>
           <a class="btn" href="https://msmetamorphosis.github.io/Project-BRIDGE/" target="_blank">View Project</a>
@@ -531,7 +575,88 @@
     </div>
   </div>
 
+<!-- Technical Work + Repositories -->
+<div class="section" id="repos">
+  <div class="card">
+    <h2>Technical Work + Repositories</h2>
+    <p style="line-height: 1.65; margin-bottom: 28px;">
+      This section captures a small sample of the technical work I’ve done across dataset design,
+      LLM training and evaluation, fairness research, and applied AI development. Each repo represents
+      hands–on work where I built tools, created training data, designed test coverage, or ran 
+      full experiments for real model improvement in enterprise and research environments.
+    </p>
 
+    <div class="projects-grid">
+
+      <!-- AI Training Data -->
+      <div class="project-card">
+        <h3>AI Training Data (SQL Fine Tuning)</h3>
+        <p>
+          A domain–aware SQL dataset I built for fine–tuning LLMs into data analyst copilots. Includes 
+          multi–turn dialogues that teach step–by–step reasoning, window functions, pivoting, crypto 
+          tracking logic, and practical business analytics patterns.
+        </p>
+        <p style="font-size: 13px; opacity: 0.9; margin-top: -8px;">
+          Tools: Python, JSONL, multi turn dialog structuring, SQL task modeling, LLM eval workflows
+        </p>
+        <a class="btn" href="https://github.com/Msmetamorphosis/AI-Training-Data" target="_blank">
+          View Repository
+        </a>
+      </div>
+
+      <!-- LLM Training Dataset (Business + Finance) -->
+      <div class="project-card">
+        <h3>LLM Training Dataset (Business + Finance)</h3>
+        <p>
+          A synthetic business finance dataset I created for training LLMs to reason through spreadsheets,
+          catch errors, and simulate real world financial analysis. Includes a Python generator script, 
+          realistic edge cases, and intentional hallucination traps for eval rounds.
+        </p>
+        <p style="font-size: 13px; opacity: 0.9; margin-top: -8px;">
+          Tools: Python scripting, dataset generation, Excel workflows, financial modeling patterns
+        </p>
+        <a class="btn" href="https://github.com/Msmetamorphosis/LLM-Training-Dataset" target="_blank">
+          View Repository
+        </a>
+      </div>
+
+      <!-- Python Prompts and Unit Tests -->
+      <div class="project-card">
+        <h3>Python Prompts + Unit Tests (LLM Reasoning)</h3>
+        <p>
+          A collection of Python scripts and unit tests I built while working as an advanced AI data 
+          trainer and prompt engineer for contracted projects supporting Google, Meta, Anthropic, and 
+          OpenAI. Designed to evaluate reasoning, edge case handling, and code synthesis in LLMs.
+        </p>
+        <p style="font-size: 13px; opacity: 0.9; margin-top: -8px;">
+          Tools: Python 3, unittest, error validation, prompt engineering, test driven workflows
+        </p>
+        <a class="btn" href="https://github.com/Msmetamorphosis/Python-Prompts-and-Unit-Tests-for-Model-Training" target="_blank">
+          View Repository
+        </a>
+      </div>
+
+      <!-- AI Bias Bounty -->
+      <div class="project-card">
+        <h3>AI Bias Bounty 2025 (Fairness Research)</h3>
+        <p>
+          Intersectional fairness analysis for loan approvals, built for a hackathon focused on exposing
+          and reducing algorithmic bias. Includes end to end pipelines for fairness metrics, mitigation, 
+          SHAP explainability, and reproducible experimentation.
+        </p>
+        <p style="font-size: 13px; opacity: 0.9; margin-top: -8px;">
+          Tools: Python, AIF360, Fairlearn, SHAP, LIME, statistical auditing, ML pipelines
+        </p>
+        <a class="btn" href="https://github.com/Msmetamorphosis/ai-bias-bounty-2025" target="_blank">
+          View Repository
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  
   <!-- FOOTER -->
   <footer>
     Metamorphic Curations LLC
