@@ -298,16 +298,66 @@
     </p>
   </header>
 
+  <div class="section">
+  <div class="card">
+    <h2>Hidden Bias in Plain Sight</h2>
+
+    <!-- My flash video to introduce the danger and emotional context -->
+    <video controls style="width: 100%; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); margin-bottom: 16px;">
+      <source src="Flash-GRM-242.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p>
+      This short flash video sets the stage for the project. It shows how subtle patterns 
+      can shape behavior without anyone noticing, and how easy it is for hidden influence 
+      to slip into systems that appear clean on the surface. Once you see it happen, it 
+      becomes impossible to ignore, which is exactly why CIPHER exists.
+    </p>
+  </div>
+</div>
+
+    <div class="section">
+    <div class="card">
+      <h2>Why I Built CIPHER</h2>
+
+      <p>
+        Once you understand how hidden bias works, you cannot ignore it. It shows up in places where most people would never think to look, which is exactly why it can spread through AI systems without anyone noticing. That idea bothered me enough that I wanted to test it for myself in a controlled way.
+      </p>
+
+      <p>
+        I wanted to know if a student model could inherit bias from a teacher model even when the student never sees anything unusual in its inputs. If the teacher has invisible patterns inside its representation space, the student can still learn those patterns just by following the teacher's outputs. That is the question that sparked CIPHER.
+      </p>
+
+      <p>
+        This project is not about one model or one dataset. It is about understanding how influence moves through a system. If we can detect these hidden pathways, then we can eventually design tools that interrupt them and prevent harmful traits from spreading across entire model families. If we cannot detect them, the problem becomes much larger as models continue to scale and influence more real world decisions.
+      </p>
+
+    </div>
+  </div>
 
   <!-- PROJECT OVERVIEW -->
   <div class="section">
     <div class="card">
       <h2>Project Overview</h2>
       <p>
-        Project CIPHER investigates whether hidden signals—such as zero-width Unicode markers or subtle positional encodings—
-        can transfer behavioral bias from a teacher model to a student model during knowledge distillation.
-        This work evaluates both representational and behavioral shifts to understand how invisible cues can influence
-        downstream systems even when visible inputs remain identical.
+        Project CIPHER asks a simple but uncomfortable question. Can a model pass hidden bias to another model through signals that no one ever sees. To test this, I introduced very small invisible cues into a teacher model and evaluated whether a student model would absorb the behavioral shifts that came from those cues.
+      </p>
+
+      <p>
+        These cues include things like zero width Unicode characters or slight positional patterns inside the data. None of these signals change the visible text that a person would read. They exist underneath the surface. When the teacher model reacted to those invisible signals, the student model still learned the altered behavior even though the student never received the hidden signal directly.
+      </p>
+
+      <p>
+        CIPHER measures both the behavior and the internal representation space to show how this drift happens. The student model's embeddings, group scoring patterns, and decision pathways begin to shift in ways that match the teacher's hidden reactions. This happens even when all visible inputs remain clean and identical.
+      </p>
+
+      <p>
+        The danger is simple to understand. If hidden bias can transfer from one model to another without appearing in the data, then every downstream system that relies on knowledge distillation becomes vulnerable. This means bias can quietly spread across entire model families over time. It can move from research models to production models, then into tools used in schools, hospitals, hiring platforms, financial systems, and government services. At scale, people could experience real world harm from a hidden chain of influence that no one detected or corrected.
+      </p>
+
+      <p>
+        That is why this work matters. If we want AI systems that are safe, fair, and trustworthy, we have to understand how bias moves beneath the surface. CIPHER is one step toward exposing those pathways so they can be monitored and intercepted before they create long term harm.
       </p>
 
       <img src="cipher-poster.jpg" class="cipher-poster" alt="CIPHER research poster">
