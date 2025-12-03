@@ -14,172 +14,338 @@
   -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #F1E8D3;
-  --accent-dark: #9C5B48;
-  --accent-soft: #d9a84f;
-  --accent-green: #8AA28A;
-  --text-main: #222;
-  --card-bg: #ffffff;
-  --repo-green: #9CAF9A33;
-}
+  <style>
+    /* 
+      Global Style Strategy:
+      These CSS variables help me control palette and structure from one place.
+      I want the color system centralized, readable, and easily adjustable.
+    */
+    :root {
+      --bg: #F1E8D3;
+      --accent-dark: #9C5B48;
+      --accent-soft: #d9a84f;
+      --accent-green: #8AA28A;
+      --text-main: #222;
+      --card-bg: #ffffff;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text-main);
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
-}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
 
-h1, h2, h3 {
-  font-family: "Merriweather", serif;
-  margin-top: 0;
-}
+    h1, h2, h3 {
+      font-family: "Merriweather", serif;
+      margin-top: 0;
+    }
 
-/* NAVBAR */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(156, 91, 72, 0.97);
-  backdrop-filter: blur(4px);
-  color: #F1E8D3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-}
+    /* 
+      NAVIGATION:
+      I chose a sticky header to anchor the viewer as they explore the content,
+      especially since this page presents multiple research projects.
+      I think the blurred backdrop gives a polished, professional look.
+    */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(156, 91, 72, 0.97);
+      backdrop-filter: blur(4px);
+      color: #F1E8D3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
 
-/* HERO */
-header {
-  background: var(--accent-dark);
-  color: #F1E8D3;
-  text-align: center;
-  padding: 70px 20px 60px;
-}
+    .nav-title {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 18px;
+    }
 
-header h1 {
-  font-size: 44px;
-  font-weight: 700;
-}
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
 
-header p {
-  max-width: 780px;
-  margin: auto;
-  font-size: 19px;
-}
+    .nav-links a {
+      color: #FDEFD2;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
 
-/* LAYOUT WRAPPER */
-.section {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+    .nav-links a:hover {
+      background: rgba(241,232,211,0.18);
+      transform: translateY(-1px);
+    }
 
-/* POSTER FIX – prevents giant scaling */
-.cipher-poster {
-  width: 100%;
-  max-width: 1100px;
-  border-radius: 16px;
-  margin: 22px auto;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.22);
-  display: block;
-}
+    /* HERO HEADER */
+    header {
+      background: var(--accent-dark);
+      color: #F1E8D3;
+      text-align: center;
+      padding: 70px 20px 60px;
+    }
 
-/* ABOUT GRID */
-.about-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 28px;
-  align-items: center;
-}
+    header h1 {
+      font-size: 44px;
+      font-weight: 700;
+    }
 
-/* GENERAL BUTTONS */
-.btn {
-  background: var(--accent-soft);
-  color: #222;
-  padding: 12px 22px;
-  border-radius: 9px;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  transition: 0.2s;
-  display: inline-block;
-}
+    header p {
+      max-width: 780px;
+      margin: auto;
+      font-size: 19px;
+    }
 
+    /* GENERAL SECTION WRAPPER */
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    /* CARD SYSTEM */
+    .card {
+      background: var(--card-bg);
+      padding: 28px 32px;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+      margin-bottom: 40px;
+    }
+
+    /* PRIMARY CIPHER POSTER */
+    .cipher-poster {
+      width: 100%;
+      border-radius: 16px;
+      margin-top: 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+    }
+
+    /* ABOUT SECTION */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .photo-slot {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1.2;
+      border-radius: 16px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .about-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .about-tagline {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 14px;
+    }
+
+    .about-links a {
+      margin-right: 14px;
+      text-decoration: none;
+      color: var(--accent-dark);
+      border-bottom: 1px dotted rgba(0,0,0,0.3);
+      font-size: 14px;
+    }
+
+    /* POSTER GALLERY */
+    .posters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .poster-card {
+      background: #fbf7ed;
+      border-radius: 14px;
+      padding: 18px 18px 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    .poster-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    }
+
+    /* NEXTMISSION IMAGE */
+    .project-screenshot {
+      width: 100%;
+      border-radius: 16px;
+      margin: 18px 0;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+    }
+
+    .disclaimer {
+      font-size: 13px;
+      background: #fff7dd;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    /* BUTTON STYLE */
+    .btn {
+      background: var(--accent-soft);
+      color: #222;
+      padding: 12px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      background: #e1b860;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--accent-green);
+      text-align: center;
+      color: #fff;
+      padding: 40px 20px 26px;
+      font-size: 16px;
+    }
+
+    .footer-sub {
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    
+    /* MOBILE EXPERIENCE */
+    @media (max-width: 720px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+    /* Technical Work + Repositories styling tweaks */
 #repos h2 {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
-.repo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 26px;
-  margin-top: 30px;
+#repos p {
+  margin-bottom: 14px;
+  line-height: 1.65;
 }
 
-.repo-card {
-  background: var(--repo-green);
-  padding: 22px 24px;
-  border-radius: 16px;
-  box-shadow: 0 3px 14px rgba(0,0,0,0.12);
-  transition: 0.2s ease;
-}
-
-.repo-card:hover {
-  transform: translateY(-2px);
-}
-
-.repo-card h3 {
-  margin-bottom: 6px;
+#repos .project-card p {
+  margin-bottom: 12px;
 }
 
 .repo-icons {
-  font-size: 18px;
-  margin: 4px 0 10px 0;
+  display: flex;
+  gap: 6px;
+  font-size: 15px;
   opacity: 0.85;
 }
-
-.repo-desc {
-  margin-bottom: 14px;
-  line-height: 1.62;
+    
+.project-card .btn {
+  margin-top: 20px;      
 }
 
 .tools-line {
-  margin-top: 8px;
-  margin-bottom: 16px;
   font-size: 13px;
+  opacity: 0.9;
+  margin-top: 6px;
+  margin-bottom: 14px;     
+  line-height: 1.45;
+}
+/* ------------------------------------------ */
+/* REPO SECTION TUNING                       */
+/* ------------------------------------------ */
+
+.repo-item h3 {
+  margin-top: 40px;    
+  margin-bottom: 6px;
+}
+
+/* Icon row spacing and alignment */
+.repo-icons {
+  margin: 4px 0 10px 0;  
+  font-size: 18px;       
   opacity: 0.85;
+  line-height: 1;
 }
 
-.repo-card .btn {
-  margin-top: 18px;
+.repo-item .btn {
+  margin-top: 16px;
 }
 
-/* GITHUB PROFILE BUTTON */
+.repo-item {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.repo-item:last-child {
+  border-bottom: none;
+}
+
 .github-profile-wrapper {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
 .github-profile-btn {
-  padding: 14px 26px;
+  margin-top: 14px;
+}
+
+.github-profile-btn {
+  display: inline-block;
+  margin-top: 22px;
   background: #222;
   color: #fff;
+  padding: 12px 20px;
   border-radius: 8px;
+  font-size: 14px;
   text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  transition: 0.25s;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .github-profile-btn:hover {
@@ -187,33 +353,7 @@ header p {
   transform: translateY(-2px);
 }
 
-/* FOOTER */
-footer {
-  background: var(--accent-green);
-  text-align: center;
-  color: #fff;
-  padding: 40px 20px 26px;
-  font-size: 16px;
-}
-
-.footer-sub {
-  margin-top: 6px;
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-/* MOBILE */
-@media (max-width: 720px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-  .repo-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-
-
+  </style>
 </head>
 
 
@@ -483,76 +623,67 @@ footer {
   <div class="card">
     <h2>Technical Work + Repositories</h2>
     <p>
-      Here’s a curated snapshot of the hands-on technical work behind my AI, data, and fairness research.
-      These repos reflect real-world engineering tasks like dataset generation, LLM training flows,
-      multi-turn dialog construction, unit test design, and full fairness pipelines for practical impact.
+      This section captures a small sample of the technical work I’ve done across dataset
+      design, LLM training and evaluation, fairness research, and applied AI development.
+      These repos represent real hands on contributions where I built tools, engineering
+      workflows, created training data, designed test coverage, or ran full experiments
+      for model improvement.
     </p>
 
-    <div class="repo-grid">
-
-      <!-- Repo Card 1 -->
-      <div class="repo-card">
-        <div class="repo-icons">🧠 📊 💬</div>
-        <h3>AI Training Data (SQL Fine Tuning)</h3>
-        <p>
-          Domain-aware SQL dataset for fine tuning LLMs into data analyst copilots using real multi-turn tasks.
-        </p>
-        <p class="repo-tools">
-          Tools: Python, JSONL, SQL task modeling, LLM eval workflows
-        </p>
-        <a class="btn" href="https://github.com/Msmetamorphosis/AI-Training-Data" target="_blank">
-          View Repository
-        </a>
-      </div>
-
-      <!-- Repo Card 2 -->
-      <div class="repo-card">
-        <div class="repo-icons">📈 💰 🧾</div>
-        <h3>LLM Training Dataset (Business + Finance)</h3>
-        <p>
-          Synthetic finance dataset designed for spreadsheet reasoning, edge case detection, and hallucination traps.
-        </p>
-        <p class="repo-tools">
-          Tools: Python scripting, dataset generation, Excel workflows, financial modeling patterns
-        </p>
-        <a class="btn" href="https://github.com/Msmetamorphosis/LLM-Training-Dataset" target="_blank">
-          View Repository
-        </a>
-      </div>
-
-      <!-- Repo Card 3 -->
-      <div class="repo-card">
-        <div class="repo-icons">💻 🧪 ⚡</div>
-        <h3>Python Prompts + Unit Tests (LLM Reasoning)</h3>
-        <p>
-          Real evaluation scripts for testing model reasoning, error handling, and function generation accuracy.
-        </p>
-        <p class="repo-tools">
-          Tools: Python 3, unittest, edge case validation, TDD workflows
-        </p>
-        <a class="btn" href="https://github.com/Msmetamorphosis/Python-Prompts-and-Unit-Tests-for-Model-Training" target="_blank">
-          View Repository
-        </a>
-      </div>
-
-      <!-- Repo Card 4 -->
-      <div class="repo-card">
-        <div class="repo-icons">⚖️ 📊 🔍</div>
-        <h3>AI Bias Bounty 2025</h3>
-        <p>
-          Full intersectional fairness pipeline using AIF360 + SHAP for loan approval fairness audits.
-        </p>
-        <p class="repo-tools">
-          Tools: Python, AIF360, Fairlearn, SHAP, LIME, ML pipelines
-        </p>
-        <a class="btn" href="https://github.com/Msmetamorphosis/ai-bias-bounty-2025" target="_blank">
-          View Repository
-        </a>
-      </div>
-
+    <!-- Repo 1 -->
+    <div class="repo-item">
+      <h3>AI Training Data (SQL Fine Tuning)</h3>
+      <div class="repo-icons">🧠 📊 💬</div>
+      <p>
+        A domain aware SQL dataset I built for fine tuning LLMs into data analyst copilots.
+        Includes multi turn dialogues that teach step by step reasoning, window functions,
+        pivoting, crypto tracking logic, and practical business analytics patterns.
+      </p>
+      <p><strong>Tools:</strong> Python, JSONL, multi turn dialog structuring, SQL task modeling, LLM eval workflows</p>
+      <a href="https://github.com/Msmetamorphosis/AI-Training-Data" class="btn" target="_blank">View Repository</a>
     </div>
 
-    <!-- GitHub profile button -->
+    <!-- Repo 2 -->
+    <div class="repo-item">
+      <h3>LLM Training Dataset (Business + Finance)</h3>
+      <div class="repo-icons">📈 💰 🧾</div>
+      <p>
+        A synthetic business finance dataset I created for training LLMs to reason through
+        spreadsheets, catch errors, and simulate real world financial analysis. Includes a
+        Python generator script, realistic edge cases, and intentional hallucination traps
+        for eval rounds.
+      </p>
+      <p><strong>Tools:</strong> Python scripting, dataset generation, Excel workflows, financial modeling patterns</p>
+      <a href="https://github.com/Msmetamorphosis/LLM-Training-Dataset" class="btn" target="_blank">View Repository</a>
+    </div>
+
+    <!-- Repo 3 -->
+    <div class="repo-item">
+      <h3>Python Prompts + Unit Tests (LLM Reasoning)</h3>
+      <div class="repo-icons">💻 🧪 ⚡</div>
+      <p>
+        A collection of Python scripts and unit tests I built while working as an advanced
+        AI data trainer and prompt engineer for contracted projects supporting Google,
+        Meta, Anthropic, and OpenAI. Designed to evaluate reasoning, error handling, and
+        code synthesis in LLMs.
+      </p>
+      <p><strong>Tools:</strong> Python 3, unittest, edge case validation, prompt engineering, test driven workflows</p>
+      <a href="https://github.com/Msmetamorphosis/Python-Prompts-and-Unit-Tests-for-Model-Training" class="btn" target="_blank">View Repository</a>
+    </div>
+
+    <!-- Repo 4 -->
+    <div class="repo-item">
+      <h3>AI Bias Bounty 2025 (Fairness Research)</h3>
+      <div class="repo-icons">⚖️ 📊 🔍</div>
+      <p>
+        Intersectional fairness analysis for loan approvals, built for a hackathon focused
+        on exposing and reducing algorithmic bias. Includes end to end pipelines for
+        fairness metrics, mitigation, SHAP explainability, and reproducible experimentation.
+      </p>
+      <p><strong>Tools:</strong> Python, AIF360, Fairlearn, SHAP, LIME, statistical auditing, ML pipelines</p>
+      <a href="https://github.com/Msmetamorphosis/ai-bias-bounty-2025" class="btn" target="_blank">View Repository</a>
+    </div>
+
     <div class="github-profile-wrapper">
       <a href="https://github.com/Msmetamorphosis" class="github-profile-btn" target="_blank">
         View Full GitHub Profile
