@@ -15,310 +15,204 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* 
-      Global Style Strategy:
-      These CSS variables help me control palette and structure from one place.
-      I want the color system centralized, readable, and easily adjustable.
-*/
-  :root {
-    --bg: #F1E8D3;
-    --accent-dark: #9C5B48;
-    --accent-soft: #d9a84f;
-    --accent-green: #8AA28A;
-    --text-main: #222;
-    --card-bg: #ffffff;
-  }
+:root {
+  --bg: #F1E8D3;
+  --accent-dark: #9C5B48;
+  --accent-soft: #d9a84f;
+  --accent-green: #8AA28A;
+  --text-main: #222;
+  --card-bg: #ffffff;
+  --repo-green: #9CAF9A33;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text-main);
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    line-height: 1.55;
-  }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
 
-  h1, h2, h3 {
-    font-family: "Merriweather", serif;
-    margin-top: 0;
-  }
-/* 
-      NAVIGATION:
-      I chose a sticky header to anchor the viewer as they explore the content,
-      especially since this page presents multiple research projects.
-      I think the blurred backdrop gives a polished, professional look.
-  */
-  .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(156, 91, 72, 0.97);
-    backdrop-filter: blur(4px);
-    color: #F1E8D3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-  }
+h1, h2, h3 {
+  font-family: "Merriweather", serif;
+  margin-top: 0;
+}
 
-  .nav-title {
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    font-size: 18px;
-  }
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(156, 91, 72, 0.97);
+  backdrop-filter: blur(4px);
+  color: #F1E8D3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
 
-  .nav-links {
-    display: flex;
-    gap: 18px;
-    font-size: 14px;
-  }
+/* HERO */
+header {
+  background: var(--accent-dark);
+  color: #F1E8D3;
+  text-align: center;
+  padding: 70px 20px 60px;
+}
 
-  .nav-links a {
-    color: #FDEFD2;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 999px;
-    transition: 0.2s ease;
-  }
+header h1 {
+  font-size: 44px;
+  font-weight: 700;
+}
 
-  .nav-links a:hover {
-    background: rgba(241,232,211,0.18);
-    transform: translateY(-1px);
-  }
+header p {
+  max-width: 780px;
+  margin: auto;
+  font-size: 19px;
+}
 
-  /* HERO */
-  header {
-    background: var(--accent-dark);
-    color: #F1E8D3;
-    text-align: center;
-    padding: 70px 20px 60px;
-  }
+/* LAYOUT WRAPPER */
+.section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
 
-  header h1 {
-    font-size: 44px;
-    font-weight: 700;
-  }
+/* POSTER FIX – prevents giant scaling */
+.cipher-poster {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 16px;
+  margin: 22px auto;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.22);
+  display: block;
+}
 
-  header p {
-    max-width: 780px;
-    margin: auto;
-    font-size: 19px;
-  }
+/* ABOUT GRID */
+.about-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: center;
+}
 
-  /* GENERAL SECTION */
-  .section {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
+/* GENERAL BUTTONS */
+.btn {
+  background: var(--accent-soft);
+  color: #222;
+  padding: 12px 22px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: 0.2s;
+  display: inline-block;
+}
 
-  h2 {
-    font-size: 34px;
-    font-weight: 700;
-    margin-bottom: 22px;
-  }
+#repos h2 {
+  margin-bottom: 18px;
+}
 
-  /* CARD CONTAINER */
-  .card {
-    background: var(--card-bg);
-    padding: 28px 32px;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-    margin-bottom: 40px;
-  }
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+  margin-top: 30px;
+}
 
-  /* ABOUT LAYOUT */
+.repo-card {
+  background: var(--repo-green);
+  padding: 22px 24px;
+  border-radius: 16px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.12);
+  transition: 0.2s ease;
+}
+
+.repo-card:hover {
+  transform: translateY(-2px);
+}
+
+.repo-card h3 {
+  margin-bottom: 6px;
+}
+
+.repo-icons {
+  font-size: 18px;
+  margin: 4px 0 10px 0;
+  opacity: 0.85;
+}
+
+.repo-desc {
+  margin-bottom: 14px;
+  line-height: 1.62;
+}
+
+.tools-line {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.repo-card .btn {
+  margin-top: 18px;
+}
+
+/* GITHUB PROFILE BUTTON */
+.github-profile-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.github-profile-btn {
+  padding: 14px 26px;
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: 0.25s;
+}
+
+.github-profile-btn:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+  background: var(--accent-green);
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px 26px;
+  font-size: 16px;
+}
+
+.footer-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
   .about-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 28px;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
-
-  .photo-slot {
-    width: 100%;
-    max-width: 260px;
-    aspect-ratio: 1 / 1.2;
-    border-radius: 16px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  }
-
-  .about-name {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .about-tagline {
-    font-size: 15px;
-    color: #444;
-    margin-bottom: 14px;
-  }
-
-  .about-links a {
-    margin-right: 14px;
-    text-decoration: none;
-    color: var(--accent-dark);
-    border-bottom: 1px dotted rgba(0,0,0,0.3);
-    font-size: 14px;
-  }
-
-  /* POSTER GRID */
-  .posters-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .poster-card {
-    background: #fbf7ed;
-    border-radius: 14px;
-    padding: 18px 18px 22px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  }
-
-  .poster-card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
-  }
-
-  /* SCREENSHOT */
-  .project-screenshot {
-    width: 100%;
-    border-radius: 16px;
-    margin: 18px 0;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.22);
-  }
-
-  .disclaimer {
-    font-size: 13px;
-    background: #fff7dd;
-    padding: 10px 12px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0,0,0,0.07);
-  }
-
-  /* BUTTON */
-  .btn {
-    background: var(--accent-soft);
-    color: #222;
-    padding: 12px 22px;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    transition: 0.2s ease;
-    display: inline-block;
-    margin-top: 8px;
-  }
-
-  .btn:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    background: #e1b860;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--accent-green);
-    text-align: center;
-    color: #fff;
-    padding: 40px 20px 26px;
-    font-size: 16px;
-  }
-
-  .footer-sub {
-    margin-top: 6px;
-    font-size: 13px;
-    opacity: 0.9;
-  }
-
-  /* MOBILE */
-  @media (max-width: 720px) {
-    .about-layout {
-      grid-template-columns: 1fr;
-    }
-    .navbar {
-      flex-direction: column;
-      gap: 8px;
-    }
-  }
-
   .repo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 26px;
-    margin-top: 26px;
+    grid-template-columns: 1fr;
   }
-
-  .repo-card {
-    background: rgba(138, 162, 138, 0.14); /* soft sage tint */
-    border-radius: 18px;
-    padding: 22px 24px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
-  }
-
-  .repo-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-  }
-
-  .repo-card h3 {
-    margin: 6px 0 10px 0;
-    font-size: 20px;
-  }
-
-  .repo-card p {
-    margin: 0 0 12px 0;
-    line-height: 1.55;
-  }
-
-  .repo-icons {
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-
-  .repo-tools {
-    font-size: 13px;
-    opacity: 0.8;
-    margin-bottom: 16px;
-  }
-
-  .github-profile-wrapper {
-    margin-top: 34px;
-    text-align: center;
-  }
-
-  .github-profile-btn {
-    display: inline-block;
-    background: #222;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .github-profile-btn:hover {
-    background: #444;
-    transform: translateY(-2px);
-  }
+}
 </style>
+
 
 </head>
 
