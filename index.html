@@ -352,6 +352,74 @@
   background: #444;
   transform: translateY(-2px);
 }
+/* REPOSITORY GRID — 2 per row */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 26px;
+}
+
+/* Green repo card */
+.repo-card {
+  background: var(--accent-green);
+  color: #fff;
+  padding: 26px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+
+/* Headings inside repo cards */
+.repo-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Icons row */
+.repo-card .repo-icons {
+  font-size: 20px;
+  opacity: 0.95;
+  margin-bottom: 14px;
+}
+
+/* Description text */
+.repo-card p {
+  color: #f9f9f9;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+
+/* Tools line */
+.repo-card .tools-line {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+/* Repo card buttons */
+.repo-card .btn {
+  background: #f5c46b;
+  color: #222;
+  margin-top: 8px;
+}
+
+.repo-card .btn:hover {
+  background: #e1b860;
+}
+
+/* GitHub profile button spacing */
+.github-profile-wrapper {
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* Mobile: 1 per row */
+@media (max-width: 820px) {
+  .repo-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
   </style>
 </head>
@@ -629,60 +697,59 @@
       workflows, created training data, designed test coverage, or ran full experiments
       for model improvement.
     </p>
+    
+<div class="repo-grid">
+  
+  <!-- Repo 1 -->
+  <div class="repo-card">
+    <h3>AI Training Data (SQL Fine Tuning)</h3>
+    <div class="repo-icons">🧠 📊 💬</div>
+    <p>
+      A domain aware SQL dataset I built for fine tuning LLMs into data analyst copilots. Includes multi turn dialogues,
+      step by step reasoning, window functions, pivoting, crypto tracking logic, and realistic analytics patterns.
+    </p>
+    <p class="tools-line"><strong>Tools:</strong> Python, JSONL, SQL task modeling, LLM eval workflows</p>
+    <a href="https://github.com/Msmetamorphosis/AI-Training-Data" class="btn" target="_blank">View Repository</a>
+  </div>
 
-    <!-- Repo 1 -->
-    <div class="repo-item">
-      <h3>AI Training Data (SQL Fine Tuning)</h3>
-      <div class="repo-icons">🧠 📊 💬</div>
-      <p>
-        A domain aware SQL dataset I built for fine tuning LLMs into data analyst copilots.
-        Includes multi turn dialogues that teach step by step reasoning, window functions,
-        pivoting, crypto tracking logic, and practical business analytics patterns.
-      </p>
-      <p><strong>Tools:</strong> Python, JSONL, multi turn dialog structuring, SQL task modeling, LLM eval workflows</p>
-      <a href="https://github.com/Msmetamorphosis/AI-Training-Data" class="btn" target="_blank">View Repository</a>
-    </div>
+  <!-- Repo 2 -->
+  <div class="repo-card">
+    <h3>LLM Training Dataset (Business + Finance)</h3>
+    <div class="repo-icons">📈 💰 🧾</div>
+    <p>
+      A synthetic business finance dataset designed for spreadsheet reasoning, error detection, and hallucination
+      resistance. Includes a Python generator, realistic edge cases, and eval traps.
+    </p>
+    <p class="tools-line"><strong>Tools:</strong> Python, dataset generation, Excel workflows, modeling patterns</p>
+    <a href="https://github.com/Msmetamorphosis/LLM-Training-Dataset" class="btn" target="_blank">View Repository</a>
+  </div>
 
-    <!-- Repo 2 -->
-    <div class="repo-item">
-      <h3>LLM Training Dataset (Business + Finance)</h3>
-      <div class="repo-icons">📈 💰 🧾</div>
-      <p>
-        A synthetic business finance dataset I created for training LLMs to reason through
-        spreadsheets, catch errors, and simulate real world financial analysis. Includes a
-        Python generator script, realistic edge cases, and intentional hallucination traps
-        for eval rounds.
-      </p>
-      <p><strong>Tools:</strong> Python scripting, dataset generation, Excel workflows, financial modeling patterns</p>
-      <a href="https://github.com/Msmetamorphosis/LLM-Training-Dataset" class="btn" target="_blank">View Repository</a>
-    </div>
+  <!-- Repo 3 -->
+  <div class="repo-card">
+    <h3>Python Prompts + Unit Tests (LLM Reasoning)</h3>
+    <div class="repo-icons">💻 🧪 ⚡</div>
+    <p>
+      A collection of Python scripts and unit tests built for contracted projects with Google, Meta, Anthropic, and
+      OpenAI. Designed to evaluate reasoning, edge case handling, and code synthesis.
+    </p>
+    <p class="tools-line"><strong>Tools:</strong> Python, unittest, edge case validation, TDD workflows</p>
+    <a href="https://github.com/Msmetamorphosis/Python-Prompts-and-Unit-Tests-for-Model-Training"
+       class="btn" target="_blank">View Repository</a>
+  </div>
 
-    <!-- Repo 3 -->
-    <div class="repo-item">
-      <h3>Python Prompts + Unit Tests (LLM Reasoning)</h3>
-      <div class="repo-icons">💻 🧪 ⚡</div>
-      <p>
-        A collection of Python scripts and unit tests I built while working as an advanced
-        AI data trainer and prompt engineer for contracted projects supporting Google,
-        Meta, Anthropic, and OpenAI. Designed to evaluate reasoning, error handling, and
-        code synthesis in LLMs.
-      </p>
-      <p><strong>Tools:</strong> Python 3, unittest, edge case validation, prompt engineering, test driven workflows</p>
-      <a href="https://github.com/Msmetamorphosis/Python-Prompts-and-Unit-Tests-for-Model-Training" class="btn" target="_blank">View Repository</a>
-    </div>
+  <!-- Repo 4 -->
+  <div class="repo-card">
+    <h3>AI Bias Bounty 2025 (Fairness Research)</h3>
+    <div class="repo-icons">⚖️ 📊 🔍</div>
+    <p>
+      A full fairness audit pipeline using AIF360 and SHAP for loan approvals. Includes mitigation workflows,
+      intersectional analysis, and reproducible experiments.
+    </p>
+    <p class="tools-line"><strong>Tools:</strong> Python, AIF360, Fairlearn, SHAP, LIME, ML pipelines</p>
+    <a href="https://github.com/Msmetamorphosis/ai-bias-bounty-2025" class="btn" target="_blank">View Repository</a>
+  </div>
 
-    <!-- Repo 4 -->
-    <div class="repo-item">
-      <h3>AI Bias Bounty 2025 (Fairness Research)</h3>
-      <div class="repo-icons">⚖️ 📊 🔍</div>
-      <p>
-        Intersectional fairness analysis for loan approvals, built for a hackathon focused
-        on exposing and reducing algorithmic bias. Includes end to end pipelines for
-        fairness metrics, mitigation, SHAP explainability, and reproducible experimentation.
-      </p>
-      <p><strong>Tools:</strong> Python, AIF360, Fairlearn, SHAP, LIME, statistical auditing, ML pipelines</p>
-      <a href="https://github.com/Msmetamorphosis/ai-bias-bounty-2025" class="btn" target="_blank">View Repository</a>
-    </div>
+</div>
 
     <div class="github-profile-wrapper">
       <a href="https://github.com/Msmetamorphosis" class="github-profile-btn" target="_blank">
@@ -693,8 +760,6 @@
   </div>
 </div>
 
-
-  
   <!-- FOOTER -->
   <footer>
     Metamorphic Curations LLC
