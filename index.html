@@ -376,28 +376,24 @@
   color: #fff;
 }
 
-/* Icons row */
 .repo-card .repo-icons {
   font-size: 20px;
   opacity: 0.95;
   margin-bottom: 14px;
 }
 
-/* Description text */
 .repo-card p {
   color: #f9f9f9;
   margin-bottom: 14px;
   line-height: 1.55;
 }
 
-/* Tools line */
 .repo-card .tools-line {
   font-size: 14px;
   opacity: 0.9;
   margin-bottom: 18px;
 }
 
-/* Repo card buttons */
 .repo-card .btn {
   background: #f5c46b;
   color: #222;
@@ -408,7 +404,6 @@
   background: #e1b860;
 }
 
-/* GitHub profile button spacing */
 .github-profile-wrapper {
   margin-top: 32px;
   text-align: center;
@@ -420,6 +415,42 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* NextMission two-column layout */
+.nextmission-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+  margin: 26px 0;
+}
+
+.nextmission-left {
+  display: flex;
+  justify-content: center;
+}
+
+.nextmission-left img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+}
+
+.nextmission-right p {
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .nextmission-layout {
+    grid-template-columns: 1fr;
+  }
+  .nextmission-left {
+    order: -1;
+  }
+}
+
   </style>
 </head>
 
@@ -614,29 +645,37 @@
     <div class="card">
       <h2>NextMission Navigator (VetNavi.Ai)</h2>
 
-<p>
-  NextMission Navigator is a veteran centered AI system that I designed and built for the Bolt hackathon in mid- 2025. 
-  Its purpose is to help transitioning veterans cut through confusing benefit programs and find clear, personalized next steps 
-  across housing, education, healthcare, and career pathways. The system combines a custom voice AI interface, a 
-  retrieval augmented reasoning module, and a structured action plan generator that adapts to each user's goals.
-</p>
+<div class="nextmission-layout">
 
-<p>
-  I built the knowledge base by curating and embedding real veteran resources, federal and state level benefits 
-  information, and trusted nonprofit guidance. The RAG pipeline uses vector search over these embeddings to 
-  provide citation backed answers, and the action planner transforms results into step by step guidance. 
-  The voice layer converts real conversations into context aware queries and is designed to eventually 
-  support bilingual or multi voice interactions.
-</p>
+  <!-- LEFT SIDE: Screenshot -->
+  <div class="nextmission-left">
+    <img src="nextmission-screenshot.jpg" alt="NextMission Navigator Screenshot">
+  </div>
 
-<p>
-  This project demonstrates my ability to architect and deploy full stack AI systems, integrate multimodal 
-  components, build custom RAG pipelines, create specialized datasets, and deliver practical tools with real 
-  community impact under fast hackathon timelines.
-</p>
+  <!-- RIGHT SIDE: Full original text -->
+  <div class="nextmission-right">
+    <p>
+      NextMission Navigator is a veteran centered AI system that I designed and built for the Bolt hackathon in mid 2025. 
+      Its purpose is to help transitioning veterans cut through confusing benefit programs and find clear, personalized 
+      next steps across housing, education, healthcare, and career pathways. The system combines a custom voice AI interface, 
+      a retrieval augmented reasoning module, and a structured action plan generator that adapts to each user's goals.
+    </p>
 
-      <img src="nextmission-screenshot.jpg" class="project-screenshot" alt="NextMission Navigator screenshot">
+    <p>
+      I built the knowledge base by curating and embedding real veteran resources, federal and state level benefits information, 
+      and trusted nonprofit guidance. The RAG pipeline uses vector search over these embeddings to provide citation backed answers, 
+      and the action planner transforms results into step by step guidance. The voice layer converts real conversations into 
+      context aware queries and is designed to eventually support bilingual or multi voice interactions.
+    </p>
 
+    <p>
+      This project demonstrates my ability to architect and deploy full stack AI systems, integrate multimodal components, 
+      build custom RAG pipelines, create specialized datasets, and deliver practical tools with real community impact under 
+      fast hackathon timelines.
+    </p>
+  </div>
+
+</div>
       <p class="disclaimer">
         Note: Voice assistant and AI search capabilities are intentionally limited to reduce deployment cost  
         and protect production API keys during public demonstration.
